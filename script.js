@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
       doorClone.querySelector('button').value = n;
       doorClone.querySelector('button').ariaLabel = `Door ${n}`;
       doorClone.querySelector('.door__number').innerText = n;
-      doorClone.querySelector('button').addEventListener('click', handleDoorSelection);
 
       if (n === winningDoorNumber) {
         assignCar(doorClone);
@@ -147,6 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function setDoorSelectionOutput(value) {
     DOOR_SELECTION_OUTPUT.value = value;
   }
+
+  DOOR_SELECTION.addEventListener('click', event => {
+    if (event.target.matches('.door')) handleDoorSelection(event);
+  });
 
   DOOR_AMOUNT_INPUT.addEventListener('input', () => {
     updateDoorAmountOutput();
