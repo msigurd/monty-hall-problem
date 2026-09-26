@@ -9,6 +9,8 @@ body {
 
 header, footer { text-align: center }
 
+footer { font-size: 12px }
+
 h1 { margin-top: 0 }
 
 main {
