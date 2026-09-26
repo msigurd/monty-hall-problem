@@ -4,14 +4,32 @@ body {
   margin: 0 auto;
   max-width: 72rem;
   height: 100vh;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: #222;
+  background-color: #fbfbfd;
   > * { margin: 1rem }
 }
 
+a { color: #4a5f8c }
+
 header, footer { text-align: center }
 
-footer { font-size: 12px }
+footer {
+  font-size: 12px;
+  color: #666;
+}
 
-h1 { margin-top: 0 }
+h1 {
+  margin-top: 0;
+  margin-bottom: .25rem;
+  letter-spacing: -.01em;
+}
+
+header > p {
+  margin-top: 0;
+  color: #555;
+}
 
 main {
   display: flex;
@@ -42,7 +60,8 @@ main {
   position: relative;
   height: 9rem;
   width: 5rem;
-  border: 2px solid black;
+  border: 2px solid #222;
+  border-radius: .4rem .4rem 0 0;
   padding: 0;
   background-color: transparent;
   perspective: 30rem;
@@ -56,6 +75,10 @@ main {
       transform: rotateY(-90deg);
       visibility: hidden;
     }
+  }
+  &:focus-visible {
+    outline: 3px solid #667ba6;
+    outline-offset: 3px;
   }
   * { pointer-events: none }
 }
@@ -75,9 +98,11 @@ main {
 .door__face {
   position: relative;
   background-color: #a3b9ed;
+  border-radius: .25rem .25rem 0 0;
+  box-shadow: inset 0 0 0 .3rem rgb(255 255 255 / .15);
   height: 100%;
   transform-origin: right;
-  transition: transform .6s ease-in, visibility 0s .6s;
+  transition: transform .6s ease-in, visibility 0s .6s, background-color .15s;
   @media (prefers-reduced-motion: reduce) { transition: none }
 }
 
@@ -91,6 +116,8 @@ main {
   display: inline-block;
   margin-top: 1rem;
   font-size: 1.5rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 .door__knob {
@@ -110,11 +137,33 @@ output, label { display: block }
   text-align: center;
 }
 
+#retry-btn {
+  font: inherit;
+  padding: .4rem 1.4rem;
+  border: none;
+  border-radius: .4rem;
+  color: white;
+  background-color: #667ba6;
+  cursor: pointer;
+  transition: background-color .15s;
+  &:hover { background-color: #4a5f8c }
+  &:focus-visible {
+    outline: 3px solid #a3b9ed;
+    outline-offset: 2px;
+  }
+}
+
 #door-selection-output, #door-amount-input { max-width: 22rem }
 
 #door-amount-form { text-align: center }
 
 #door-amount-input {
-  margin: 0;
+  margin: .25rem 0;
   width: 100%;
+  accent-color: #667ba6;
+}
+
+#door-amount-output {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
