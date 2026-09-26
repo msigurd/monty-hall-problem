@@ -45,13 +45,17 @@ main {
   border: 2px solid black;
   padding: 0;
   background-color: transparent;
+  perspective: 30rem;
   &:hover {
     cursor: pointer;
     > .door__face { background-color: #859dd1 }
   }
   &:disabled {
     cursor: default;
-    > .door__face { opacity: 0 }
+    > .door__face {
+      transform: rotateY(-90deg);
+      visibility: hidden;
+    }
   }
   * { pointer-events: none }
 }
@@ -62,6 +66,9 @@ main {
   position: relative;
   background-color: #a3b9ed;
   height: 100%;
+  transform-origin: right;
+  transition: transform .6s ease-in, visibility 0s .6s;
+  @media (prefers-reduced-motion: reduce) { transition: none }
 }
 
 .door__item {
