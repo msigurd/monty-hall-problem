@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       target.classList.add('door--selected');
       handleFirstSelection(selectedDoorNumber);
     } else {
-      handleLastSelection(selectedDoorNumber);
+      handleLastSelection(target, selectedDoorNumber);
     }
   }
 
@@ -66,10 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             Do you change your door?`);
   }
 
-  function handleLastSelection(selectedDoorNumber) {
+  function handleLastSelection(selectedDoorEl, selectedDoorNumber) {
     openRemainingDoors();
 
     if (selectedDoorNumber === winningDoorNumber) {
+      selectedDoorEl.classList.add('door--win');
       setDoorSelectionOutput('You win!');
     } else {
       setDoorSelectionOutput('You lose!');

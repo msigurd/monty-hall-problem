@@ -62,6 +62,16 @@ main {
 
 .door--selected > .door__face { background-color: #667ba6 }
 
+.door--win > .door__item {
+  animation: car-hop .4s ease-out .6s 2;
+  @media (prefers-reduced-motion: reduce) { animation: none }
+}
+
+@keyframes car-hop {
+  0%, 100% { transform: translateY(0) }
+  50%      { transform: translateY(-.4rem) }
+}
+
 .door__face {
   position: relative;
   background-color: #a3b9ed;
